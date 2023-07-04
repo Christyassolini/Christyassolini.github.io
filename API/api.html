@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link href="api.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="logo.png" type="image/png"/>
+    <script src="api.js"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <script>
+        function chamar_api(){
+            fetch('https://dog.ceo/api/breeds/image/random')
+              .then(response => response.json())
+              .then(data => exibir_imagem(data));
+        }
+        function exibir_imagem(data){
+            document.getElementById("img").src = data.message;
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="second-block">
+            <div id="first-block">
+                <div id="bloco-1">
+                    <div id="titulo">
+                        clique para visualizar imagens de cachorro
+                    </div>
+                    <div id="botao">
+                        <button type="button" style="width: 120px; height: 50px;" onclick="chamar_api();">Clique aqui</button>
+                    </div>
+                </div>
+                <div id="box">
+                    <img id="img">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
